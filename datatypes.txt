@@ -1,0 +1,6 @@
+INT		Whole numbers
+DECIMAL(M, N)	M-> Total number of digits, N -> Number of digits after the decimal
+VARCHAR(1)	String of len 1
+BLOB		Binary large object (Images or files)
+DATE		'YYYY-MM-DD'
+TIMESTAMP	'YYYY-MM-DD HH:MM:SS'
