@@ -101,7 +101,54 @@ ORDER BY payment_date;
 
 
 
--- alter with most films ignoring ties) from database
 
--- cumulative revenue of all stores
 
+
+
+
+
+4.
+a.SELECT NAME FROM city WHERE NAME LIKE 'f%' ORDER BY NAME ASC LIMIT 25;
+b.SELECT name FROM world
+  		WHERE name LIKE '%United%'
+
+c.SELECT name, continent FROM country x WHERE
+ population > ALL
+ (SELECT population*3 FROM country y
+ WHERE y.continent = x.continent
+ AND y.name != x.name)
+
+d.SELECT name, SurfaceArea
+FROM country WHERE SurfaceArea BETWEEN 200000 AND 250000
+
+e.SELECT name, CASE WHEN continent='Oceania' THEN 'Australasia'
+                  ELSE continent END
+  FROM country
+ WHERE name LIKE 'N%'
+
+
+f.SELECT continent, name, surfacearea 
+FROM country x
+ WHERE surfacearea >= ALL
+ (SELECT surfacearea FROM country y
+ WHERE y.continent=x.continent
+		        AND surfacearea > 0 );
+
+g.SELECT continent,name FROM country x
+ 	WHERE x.name <= ALL (
+ 	SELECT name FROM country y
+ 	WHERE x.continent=y.continent);
+
+
+h.SELECT name,continent,population FROM country x
+ WHERE 25000000 >= ALL (
+ SELECT population FROM country y
+ WHERE x.continent=y.continent
+ AND y.population>0);
+
+
+i.SELECT name, continent FROM country x WHERE
+population > ALL
+(SELECT population*3 FROM country y
+WHERE y.continent = x.continent
+AND y.name != x.name);
