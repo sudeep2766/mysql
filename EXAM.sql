@@ -1,5 +1,5 @@
-
--- Sailors who reserved boat 101
+-- Sailors DATABASE
+-- Creating database-->copy paste from here 
 CREATE TABLE sailor(
     salID INT PRIMARY KEY,
     salName VARCHAR(20),
@@ -46,6 +46,13 @@ INSERT INTO reserves VALUES(4, 104, '2026-02-01');
 INSERT INTO reserves VALUES(5, 103, '2026-02-01');
 INSERT INTO reserves VALUES(6, 104, '2026-02-01');
 
+-- till here
+
+--Questions
+-- Sailors who reserved boat 101
+SELECT salName from sailor
+JOIN reserves ON sailor.salID = reserves.salID
+WHERE reserves.boatID = 101;
 
 
 -- Sailors who reserved RED boat
